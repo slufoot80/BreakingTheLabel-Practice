@@ -196,7 +196,7 @@ body.practice-body .btn-secondary { background: white; color: var(--primary); bo
 .book-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.12); }
 .book-cover-img {
     width: 100%;
-    max-width: 140px;
+    max-width: 80px;
     height: auto;
     border-radius: 8px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.18);
