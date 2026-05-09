@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breaking the Label — IEP Practice for Kids</title>
+    <meta name="description" content="Daily reading, writing, and math practice for IEP students. A companion to the book Breaking the Label by Paul Geise. $1/month membership.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">Breaking<span>theLabel</span></a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#preview">Try It</a></li>
+            <li><a href="#books">Books</a></li>
+            <li><a href="practice.html" class="btn-nav">Start Practicing</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>Practice that meets kids where they are.</h1>
+            <p class="lead">Reading, writing, and math practice designed for IEP students. Works on any school Chromebook, tablet, or home computer.</p>
+            <div class="hero-cta">
+                <a href="#subscribe" class="btn btn-primary">Subscribe — $1/month</a>
+                <a href="practice.html" class="btn btn-secondary">I have a code</a>
+            </div>
+            <p class="hero-note">Designed by Paul Geise, author of <em>Breaking the Label</em>.</p>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Built for the kids who learn differently.</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">📖</div>
+                    <h3>Reading</h3>
+                    <p>Sight-word matching and short-passage comprehension. Big fonts, clear feedback, no frustrating timers.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">✏️</div>
+                    <h3>Writing</h3>
+                    <p>Sentence building with word tiles. Kids assemble sentences instead of staring at a blinking cursor.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔢</div>
+                    <h3>Math</h3>
+                    <p>Adjustable addition and subtraction drills. Start where the kid is, level up when they're ready.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="preview" class="section section-alt">
+        <div class="container">
+            <h2>Try a free sample.</h2>
+            <p class="section-lead">No signup. One quick math problem to see how the practice tool feels.</p>
+            <div id="preview-exercise" class="preview-box">
+                <div class="problem" id="preview-problem">Loading…</div>
+                <div class="answers" id="preview-answers"></div>
+                <div class="feedback" id="preview-feedback"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="subscribe" class="section">
+        <div class="container container-narrow">
+            <h2>$1 a month. Unlimited practice.</h2>
+            <p class="section-lead">A subscription gives your child unlimited access to every reading, writing, and math module on this site. Cancel anytime.</p>
+            <a href="https://gumroad.com/l/REPLACE-WITH-YOUR-GUMROAD-LINK" class="btn btn-primary btn-large" target="_blank" rel="noopener">Subscribe on Gumroad</a>
+            <p class="fine-print">After you subscribe, Gumroad will email you an access code. Enter it on the <a href="practice.html">Start Practicing</a> page.</p>
+        </div>
+    </section>
+
+    <section id="books" class="section section-alt">
+        <div class="container">
+            <h2>More from Paul Geise</h2>
+            <div class="grid-3">
+                <a class="book-card" href="https://www.amazon.com/dp/B0BZDVYR71" target="_blank" rel="noopener">
+                    <div class="book-cover">📕</div>
+                    <h3>Breaking the Label</h3>
+                    <p>The book this practice tool is built around. A father's story of advocacy and hope for kids with learning differences.</p>
+                    <span class="book-link">View on Amazon →</span>
+                </a>
+                <a class="book-card" href="https://www.amazon.com/dp/B0D9KBQWG5" target="_blank" rel="noopener">
+                    <div class="book-cover">📘</div>
+                    <h3>Biblical Wisdom for Modern Living</h3>
+                    <p>Daily readings that connect timeless scripture to the questions families face today.</p>
+                    <span class="book-link">View on Amazon →</span>
+                </a>
+                <a class="book-card" href="https://www.amazon.com/dp/B0F31GWGW4" target="_blank" rel="noopener">
+                    <div class="book-cover">📗</div>
+                    <h3>A Leap of Faith from Detroit</h3>
+                    <p>A memoir about leaving what's safe, trusting the journey, and the city that shaped it.</p>
+                    <span class="book-link">View on Amazon →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section safepulse-promo">
+        <div class="container">
+            <div class="promo-card">
+                <div class="promo-text">
+                    <h3>Looking for our safety app?</h3>
+                    <p>SafePulse helps families stay connected with check-ins, SOS alerts, and safety circles.</p>
+                </div>
+                <a href="https://slufoot80.github.io/SafePulse/" class="btn btn-secondary" target="_blank" rel="noopener">Visit SafePulse →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© <span id="year"></span> Paul Geise. Breaking the Label Practice.</p>
+            <p class="footer-links">
+                <a href="practice.html">Start Practicing</a> ·
+                <a href="https://slufoot80.github.io/SafePulse/" target="_blank" rel="noopener">SafePulse</a> ·
+                <a href="#books">Books</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        BTL.renderPreviewExercise();
+    </script>
+</body>
+</html>

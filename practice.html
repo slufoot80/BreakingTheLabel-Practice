@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice — Breaking the Label</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="practice-body">
+    <nav>
+        <a href="index.html" class="logo">Breaking<span>theLabel</span></a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" id="logout-link" style="display:none;">Sign out</a></li>
+        </ul>
+    </nav>
+
+    <main class="practice-main">
+        <section id="gate" class="gate">
+            <div class="gate-card">
+                <h1>Welcome back!</h1>
+                <p>Enter the access code from your Gumroad email to start practicing.</p>
+                <input type="text" id="gate-code" placeholder="Access code" autocomplete="off" autocapitalize="off">
+                <button id="gate-submit" class="btn btn-primary btn-large">Unlock practice</button>
+                <p id="gate-error" class="gate-error" style="display:none;">That code didn't match. Check your Gumroad email and try again.</p>
+                <p class="fine-print">No code yet? <a href="index.html#subscribe">Subscribe for $1/month</a>.</p>
+            </div>
+        </section>
+
+        <section id="practice" class="practice" style="display:none;">
+            <div class="container">
+                <div class="kid-bar">
+                    <label for="kid-name">Who's practicing?</label>
+                    <input type="text" id="kid-name" placeholder="First name" maxlength="20">
+                    <span id="kid-greeting" class="kid-greeting"></span>
+                </div>
+
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="reading">📖 Reading</button>
+                    <button class="tab-btn" data-tab="writing">✏️ Writing</button>
+                    <button class="tab-btn" data-tab="math">🔢 Math</button>
+                </div>
+
+                <div id="tab-reading" class="tab-panel active">
+                    <h2>Reading: pick the word that matches the picture</h2>
+                    <div id="reading-exercise" class="exercise"></div>
+                    <div class="score-row">
+                        <span>Correct: <strong id="reading-correct">0</strong></span>
+                        <button class="btn btn-secondary" id="reading-next">New word</button>
+                    </div>
+                </div>
+
+                <div id="tab-writing" class="tab-panel">
+                    <h2>Writing: tap the words in order to build the sentence</h2>
+                    <div id="writing-exercise" class="exercise"></div>
+                    <div class="score-row">
+                        <span>Sentences built: <strong id="writing-correct">0</strong></span>
+                        <button class="btn btn-secondary" id="writing-next">New sentence</button>
+                    </div>
+                </div>
+
+                <div id="tab-math" class="tab-panel">
+                    <h2>Math: solve the problem</h2>
+                    <div class="difficulty-row">
+                        <span>Difficulty:</span>
+                        <button class="diff-btn active" data-diff="easy">Easy (1–10)</button>
+                        <button class="diff-btn" data-diff="medium">Medium (1–20)</button>
+                        <button class="diff-btn" data-diff="hard">Hard (1–100)</button>
+                    </div>
+                    <div id="math-exercise" class="exercise"></div>
+                    <div class="score-row">
+                        <span>Correct: <strong id="math-correct">0</strong></span>
+                        <button class="btn btn-secondary" id="math-next">New problem</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-links">
+                <a href="index.html#books">Paul Geise's books</a> ·
+                <a href="https://slufoot80.github.io/SafePulse/" target="_blank" rel="noopener">SafePulse safety app</a> ·
+                <a href="index.html">Home</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>BTL.initPracticePage();</script>
+</body>
+</html>
