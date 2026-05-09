@@ -197,7 +197,7 @@ body.practice-body .btn-secondary { background: white; color: var(--primary); bo
 .book-cover-img {
     width: 70px;
     height: 105px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 4px;
     margin: 0 auto 1rem;
     display: block;
