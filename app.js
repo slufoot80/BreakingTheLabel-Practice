@@ -1,12 +1,7 @@
-// Breaking the Label — IEP Practice
-// Honor-system access gate. Anyone who views source can find the code,
-// but at $1/month for a kid-targeted product, this is the right tradeoff
-// vs. building real auth. Change ACCESS_CODE here, send the same value
-// to every Gumroad subscriber via the membership confirmation email.
-const ACCESS_CODE = 'BTL2026';
+// Breaking the Label — IEP Practice (free)
+// All exercises are public; no gate. Progress saves per-device in localStorage.
 
 const STORAGE_KEYS = {
-    access: 'btl_access',
     kidName: 'btl_kid_name',
     readingScore: 'btl_reading_score',
     writingScore: 'btl_writing_score',
@@ -84,58 +79,16 @@ function renderPreviewExercise() {
         btn.addEventListener('click', () => {
             if (c === correct) {
                 btn.classList.add('correct');
-                feedbackEl.textContent = 'Correct! Subscribe to get unlimited practice.';
+                feedbackEl.textContent = '⭐ Correct! Click "Start Practicing" for the full free experience.';
                 feedbackEl.className = 'feedback correct';
             } else {
                 btn.classList.add('incorrect');
-                feedbackEl.textContent = `Not quite — try again. The answer is ${correct}.`;
+                feedbackEl.textContent = `Not quite — the answer is ${correct}.`;
                 feedbackEl.className = 'feedback incorrect';
             }
             answersEl.querySelectorAll('button').forEach(b => b.disabled = true);
         });
         answersEl.appendChild(btn);
-    });
-}
-
-// ---------- Gate ----------
-function checkGate() {
-    return localStorage.getItem(STORAGE_KEYS.access) === ACCESS_CODE;
-}
-
-function showPractice() {
-    document.getElementById('gate').style.display = 'none';
-    document.getElementById('practice').style.display = 'block';
-    document.getElementById('logout-link').style.display = '';
-    initKidBar();
-    renderReading();
-    renderWriting();
-    renderMath();
-}
-
-function initGate() {
-    const gateBtn = document.getElementById('gate-submit');
-    const codeInput = document.getElementById('gate-code');
-    const errorEl = document.getElementById('gate-error');
-    const logoutLink = document.getElementById('logout-link');
-
-    function tryUnlock() {
-        const entered = codeInput.value.trim().toUpperCase();
-        if (entered === ACCESS_CODE.toUpperCase()) {
-            localStorage.setItem(STORAGE_KEYS.access, ACCESS_CODE);
-            errorEl.style.display = 'none';
-            showPractice();
-        } else {
-            errorEl.style.display = 'block';
-        }
-    }
-
-    gateBtn.addEventListener('click', tryUnlock);
-    codeInput.addEventListener('keypress', e => { if (e.key === 'Enter') tryUnlock(); });
-
-    logoutLink.addEventListener('click', e => {
-        e.preventDefault();
-        localStorage.removeItem(STORAGE_KEYS.access);
-        location.reload();
     });
 }
 
@@ -217,7 +170,7 @@ function renderWriting() {
 
     function render() {
         container.innerHTML = `
-            <div class="sentence-slot">${built.length ? built.join(' ') : ' '}</div>
+            <div class="sentence-slot">${built.length ? built.map(i => tiles[i]).join(' ') : ' '}</div>
             <div class="word-tiles" id="writing-tiles"></div>
             <div class="feedback" id="writing-feedback"></div>
             <button class="btn btn-secondary" id="writing-undo" style="margin-top:0.5rem;">Undo</button>
@@ -323,14 +276,15 @@ function initMathDifficulty() {
 
 // ---------- Wire up practice page ----------
 function initPracticePage() {
-    initGate();
+    initKidBar();
     initTabs();
     initMathDifficulty();
     document.getElementById('reading-next').addEventListener('click', renderReading);
     document.getElementById('writing-next').addEventListener('click', renderWriting);
     document.getElementById('math-next').addEventListener('click', renderMath);
-
-    if (checkGate()) showPractice();
+    renderReading();
+    renderWriting();
+    renderMath();
 }
 
 window.BTL = { renderPreviewExercise, initPracticePage };
