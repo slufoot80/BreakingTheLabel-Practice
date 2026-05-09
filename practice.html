@@ -16,54 +16,45 @@
     </nav>
 
     <main class="practice-main">
-        <section id="practice" class="practice">
-            <div class="container">
-                <div class="kid-bar">
-                    <label for="kid-name">Who's practicing?</label>
-                    <input type="text" id="kid-name" placeholder="First name" maxlength="20">
-                    <span id="kid-greeting" class="kid-greeting"></span>
-                </div>
-
-                <div class="tabs">
-                    <button class="tab-btn active" data-tab="reading">📖 Reading</button>
-                    <button class="tab-btn" data-tab="writing">✏️ Writing</button>
-                    <button class="tab-btn" data-tab="math">🔢 Math</button>
-                </div>
-
-                <div id="tab-reading" class="tab-panel active">
-                    <h2>Reading: pick the word that matches the picture</h2>
-                    <div id="reading-exercise" class="exercise"></div>
-                    <div class="score-row">
-                        <span>Correct: <strong id="reading-correct">0</strong></span>
-                        <button class="btn btn-secondary" id="reading-next">New word</button>
-                    </div>
-                </div>
-
-                <div id="tab-writing" class="tab-panel">
-                    <h2>Writing: tap the words in order to build the sentence</h2>
-                    <div id="writing-exercise" class="exercise"></div>
-                    <div class="score-row">
-                        <span>Sentences built: <strong id="writing-correct">0</strong></span>
-                        <button class="btn btn-secondary" id="writing-next">New sentence</button>
-                    </div>
-                </div>
-
-                <div id="tab-math" class="tab-panel">
-                    <h2>Math: solve the problem</h2>
-                    <div class="difficulty-row">
-                        <span>Difficulty:</span>
-                        <button class="diff-btn active" data-diff="easy">Easy (1–10)</button>
-                        <button class="diff-btn" data-diff="medium">Medium (1–20)</button>
-                        <button class="diff-btn" data-diff="hard">Hard (1–100)</button>
-                    </div>
-                    <div id="math-exercise" class="exercise"></div>
-                    <div class="score-row">
-                        <span>Correct: <strong id="math-correct">0</strong></span>
-                        <button class="btn btn-secondary" id="math-next">New problem</button>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="kid-bar">
+                <label for="kid-name">Who's practicing?</label>
+                <input type="text" id="kid-name" placeholder="First name" maxlength="20">
+                <span id="kid-greeting" class="kid-greeting"></span>
             </div>
-        </section>
+
+            <!-- View: Grade picker -->
+            <section id="view-grades">
+                <h2 class="view-title">Pick your grade</h2>
+                <p class="view-sub">Don't be afraid to try a higher grade to challenge yourself!</p>
+                <div id="grade-grid" class="grade-grid"></div>
+            </section>
+
+            <!-- View: Topic list -->
+            <section id="view-topics" style="display:none;">
+                <button class="back-btn" id="back-to-grades">← All grades</button>
+                <h2 class="view-title" id="topics-grade-title"></h2>
+                <p class="view-sub" id="topics-grade-summary"></p>
+                <div id="topics-list" class="topics-list"></div>
+            </section>
+
+            <!-- View: Exercise -->
+            <section id="view-exercise" style="display:none;">
+                <button class="back-btn" id="back-to-topics">← All topics</button>
+                <div class="exercise-header">
+                    <span class="exercise-grade" id="exercise-grade"></span>
+                    <h2 id="exercise-topic-title"></h2>
+                    <div class="exercise-meta">
+                        <span id="exercise-progress"></span>
+                        <span id="exercise-score"></span>
+                    </div>
+                </div>
+                <div id="exercise-card" class="exercise"></div>
+                <div class="exercise-actions">
+                    <button class="btn btn-primary" id="exercise-next" style="display:none;">Next question →</button>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
